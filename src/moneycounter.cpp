@@ -1,6 +1,8 @@
 //Get your Quarters, Dimes, Nickels or Pennies(If you have any) and I will convert them into Dollars
 //"25second me paisa double"
 
+//Refer to coins.cpp for inversion of your money
+
 #include<iostream>
 #include<cmath>
 
