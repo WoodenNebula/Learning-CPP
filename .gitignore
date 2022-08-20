@@ -2,3 +2,4 @@
 *.exe
 /.vscode
 *.code-workspace
+temp.cpp
