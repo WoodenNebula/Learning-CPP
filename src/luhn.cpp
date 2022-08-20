@@ -1,3 +1,5 @@
+// A VALID CARD NUMBER : 4137894711755904
+
 #include <iostream>
 #include <cmath>
 
@@ -5,11 +7,10 @@ using namespace std;
 
 unsigned long long digitDoubler(unsigned long long);
 int lengthOfCard(unsigned long long);
-int sumChecker(unsigned long long); 
+bool cardVerifier(unsigned long long); 
 
 int main(){
     unsigned long long creditCardNum, workingCardNum; //Card number
-
     system("cls");
 
     cout << "Credit Card Number:" << endl;
@@ -23,18 +24,11 @@ int main(){
 
     workingCardNum = digitDoubler(workingCardNum);
 
-    cout << creditCardNum << "    -> Original Card" << endl;
-    cout << workingCardNum << "    -> Doubled Card" << endl;
+    if(cardVerifier(workingCardNum))
+        cout << "The Card Is VALID" << endl; 
+    else 
+        cout << " INVALID" << endl;
 
-    // system("pause");
-    // system("cls");
-
-    // cout << workingCardNum << "    -> Doubled Card" << endl;
-    // cout << "The Sum is " << sumChecker(workingCardNum) << endl;
-    // if(sumChecker(workingCardNum))
-    //     cout << "The Card Is VALID" << endl; 
-    // else 
-    //     cout << " INVALID" << endl;
     return 0;
 }
 
@@ -53,8 +47,6 @@ unsigned long long digitDoubler(unsigned long long workingCardNum){
 
     unsigned long long i = pow(10, size);
 
-    // cout << i << " Divider" << endl;
-
     for(i ; i >= 10 ; i /= 100){
             
         curRemainders = workingCardNum / i;     //could be one or more digited 
@@ -63,9 +55,7 @@ unsigned long long digitDoubler(unsigned long long workingCardNum){
             curRemainders = curRemainders % 10LL;
         }
 
-        curDigit == curRemainders;
-
-        cout << curDigit << " is current DIGIT" << endl;
+        curDigit = curRemainders;
 
         switch(curDigit){   //FOR  2 digited Douubled number case
             case 5:
@@ -83,32 +73,29 @@ unsigned long long digitDoubler(unsigned long long workingCardNum){
             case 9:
                 break;
             default:
-                // cout << "Defauld Case Invoked \n" << endl;
                 workingCardNum += (long long)curDigit * i;
                 break;
         }
-    // cout << workingCardNum << " => func" << endl; 
     }
     return workingCardNum;
 }
 
-int sumChecker(unsigned long long workingCardNum){
+bool cardVerifier(unsigned long long workingCardNum){
 
-    int sum = 0, size = lengthOfCard(workingCardNum), curDigit;
+    int sum = 0, size = lengthOfCard(workingCardNum);
 
-    unsigned long long divFactor = pow(10, size);
+    unsigned long long divFactor = pow(10, size) , curDigit;
 
     for(divFactor ; divFactor >= 1 ; divFactor /= 10){
-        curDigit = (int)workingCardNum / divFactor;
+        curDigit = workingCardNum / divFactor;
         if(curDigit > 10){
-            curDigit = (int)curDigit % 10;
+            curDigit = curDigit % 10;
         }
         sum += curDigit;
-        cout << curDigit << " Current Sum" << endl; 
     }
-    // if(sum % 10 == 0){
-    //     return true;
-    // }
-    // return false;
-    return sum;
+
+    if(sum % 10 == 0){
+        return true;
+    }
+    return false;
 }
