@@ -13,7 +13,7 @@ int gapCompare(vector<int>);
 
 int lengthOfLongestSubstring(string s){
     int LenOfSubstr, tempIndex;
-
+    
     vector <int> gaps;
     char char1, charItr;
 
