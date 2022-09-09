@@ -4,3 +4,5 @@
 *.code-workspace
 temp.cpp
 tempCodeRunnerFile.cpp
+*.json
+*.db
