@@ -8,7 +8,6 @@ A P L S I I G
 Y   I   R
 
 And then read line by line: "PAHNAPLSIIGYIR"
-
 */
 
 #include <iostream>
@@ -63,8 +62,7 @@ public:
             strIndex++;
         }
 
-        //Displaying the matrix/array in console 
-        //Comment out if not necessary to std::cout
+        //Displaying the matrix/array in console, comment out if not necessary to std::cout
         for(int i = 0; i < m_numRows; i++)
         {
             for (int j = 0; j < m_numColumn; j++)
