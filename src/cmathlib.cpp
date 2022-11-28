@@ -1,7 +1,9 @@
 /* Exploring CMath library*/
 #include<iostream>
 #include<cmath>
-#include<stdlib.h>
+
+#define M_PI 3.14;
+
 using namespace std;
 
 int main(){
