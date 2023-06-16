@@ -8,39 +8,19 @@ where each digits[i] is the ith digit of the integer.
 Increment the large integer by one and return the resulting array of digits.*/
 
 #include <iostream>
-#include <array>
+#include <vector>
 
-using namespace std;
+class Solution
+{
+public:
+    std::vector<int> PlusOne(std::vector<int>& digits)
+    {
 
-
-
-int main(){
-    
-    array<int, 5> digits;
-    
-    for(int i = 0; i < size(digits) ; i++)
-        cin >> digits[i];
-
-    for(int i = 0; i < size(digits) ; i++)
-        cout << digits[i];
-
-    cout << "\n";
-
-    
-    digits[5-1]++;
-
-    if(digits[5 - 1] > 9){
-        for(int i = 5 - 1; i >=  0 ; i--){
-            if(digits[i] > 9){
-                digits[i] = 0;
-                digits[i - 1]++;
-                if(i == 0){
-                    digits[i] = 10;
-                }   
-            }
-        }
     }
+};
 
-    for(int i = 0; i < size(digits) ; i++)
-        cout << digits[i];
+int main()
+{
+    
+    return 0;
 }
