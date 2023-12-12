@@ -14,24 +14,6 @@ void CalculateShortestDistance(int maxPath, const Board& board);
 Board InputObjectData(const std::string& filePath);
 void OutputBoardData(const Board& board);
 
-
-int main()
-{
-    Board board = InputObjectData("D:\\Programming\\C++\\src\\board.txt");
-    
-    auto& [numMoves, diceRolls, snakes, ladders] = board;
-
-    int maxPathLength = CalcMaxPathLen(numMoves, diceRolls);
-    
-    std::cout << "Maximum possible path length = " << maxPathLength << std::endl;
-        
-    OutputBoardData(board);
-
-    // CalculateShortestDistance(maxPathLength, numLadder ,ladders, numSnake, snakes);
-
-}
-
-
 struct Snake
 {
     Snake(int Index, int Head, int Tail) :index(Index), head(Head), tail(Tail) {}
@@ -66,6 +48,23 @@ struct Board
 
     }
 };
+
+
+int main()
+{
+    Board board = InputObjectData("src\\board.txt");
+    
+    auto& [numMoves, diceRolls, snakes, ladders] = board;
+
+    int maxPathLength = CalcMaxPathLen(numMoves, diceRolls);
+
+    std::cout << "Maximum possible path length = " << maxPathLength << std::endl;
+        
+    OutputBoardData(board);
+
+    // CalculateShortestDistance(maxPathLength, numLadder ,ladders, numSnake, snakes);
+
+}
 
 
 void CalculateShortestDistance(int maxPath, const Board& board)
